@@ -1,23 +1,19 @@
 const inquirer = require('inquirer');
-const { SVG, Rect, Circle, Triangle } = require('svg-builder');
+const { buildSVG } = require('./lib/shapes');
+// const { SVG, Rect, Circle, Triangle } = require('svg-builder');
 
-inquirer
-    .prompt([ 
+async function generateLogo() {
+    const userInput = await inquirer.prompt([
         {
             type: 'input',
             name: 'text',
-            message: 'Please enter some text:',
-            validate: function (value) {
-                if (value.length <= 3) {
-                return true;
-                }
-                return 'Please enter up to three characters.';
-            },
+            message: 'Please enter some text for the logo (up to three characters):',
+            validate: (input) => input.length <= 3,          
         },
         {
             type: 'input',
             name: 'textColor',
-            messaage: 'Please enter a text color:',
+            messaage: 'Please enter a text color (keyword or hexadecimal number):',
         },
         {
             type: 'list',
@@ -30,7 +26,11 @@ inquirer
             name: 'shapeColor',
             message: 'Please enter a shape color:',
         },
-    ])
-    .then((answers) => {
-        generateSVG(answers);   
-    });
+    ]);
+
+    const svg = buildSVG(userInput);
+
+    console.log('Generated logo.svg');
+}
+
+generateLogo();
