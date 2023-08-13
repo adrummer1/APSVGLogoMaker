@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { buildSVG } = require('./lib/shapes');
+const { Circle, Triangle, Square } = require('./lib/shapes');
 
 async function generateLogo() {
     const userInput = await inquirer.prompt([
@@ -26,26 +26,32 @@ async function generateLogo() {
             name: 'shapeColor',
             message: 'Please enter a shape color (keyword or hexadecimal number):',
         },
-    ]);
+    ])
 
-    // let shape;
-    // switch (userInput.shape) {
-    //     case 'circle':
-    //         shape = new Circle();
-    //         break;
-    //     case 'triangle':
-    //         shape = new Triangle();
-    //         break;
-    //     case 'square':
-    //         shape = new Square();
-    //         break;
-    // }
+    let logo;
+    switch (shape) {
+        case 'circle':
+            logo = new Circle(text, textColor, shapeColor);
+            break;
+        case 'triangle':
+            logo = new Triangle(text, textColor, shapeColor);
+            break;
+        case 'square':
+            logo = new Square(text, textColor, shapeColor);
+            break;
+        default:
+            console.log('Invalid shape');
+    }
 
-    // shape.setColor(userInput.shapeColor);
+    const svgContent = `<svg width="300" height="200">
+    <text x="50%" y="50%" fill="${textColor}" text-anchor="middle">${text}</text>
+    ${generateShape(shape, shapeColor)}
+  </svg>`;
 
-    const svg = buildSVG(userInput);
-
+    fs.writeFileSync('logo.svg', svgContent);
     console.log('Generated logo.svg');
 }
 
 generateLogo();
+
+
