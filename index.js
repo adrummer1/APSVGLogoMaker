@@ -31,7 +31,7 @@ async function generateLogo() {
     const shape = userInput.shape;
 
     let logo;
-    switch (shape) {
+    switch (userInput.shape) {
         case 'circle':
             logo = new Circle(userInput.text, userInput.textColor, userInput.shapeColor);
             break;
@@ -64,7 +64,7 @@ async function generateLogo() {
     }    
 
     const svgContent = `<svg width="300" height="200">
-    <text x="50%" y="50%" fill="${userInput.textColor}" text-anchor="middle">${userInput.text}</text>
+        <text x="50%" y="50%" fill="${userInput.textColor}" text-anchor="middle">${userInput.text}</text>
     ${generateShape(userInput.shape, userInput.shapeColor)}
   </svg>`;
 
