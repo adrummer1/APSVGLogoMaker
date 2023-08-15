@@ -42,12 +42,11 @@ async function generateLogo() {
     }
 
     function generateShape(shape, shapeColor) {
-        const userShape = new UserShape({ shape, shapeColor, text: userInput.text, textColor: userInput.textColor });
+        const userShape = new UserShape({ shape, shapeColor, textColor: userInput.textColor, text: userInput.text });
         return userShape.draw();
     } 
 
     const svgContent = `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-        <text x="50%" y="50%" fill="${userInput.textColor}" text-anchor="middle">${userInput.text}</text>
     ${generateShape(userInput.shape, userInput.shapeColor)}
   </svg>`;
 
