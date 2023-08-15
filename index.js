@@ -46,7 +46,7 @@ async function generateLogo() {
         return userShape.draw();
     } 
 
-    const svgContent = `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    const svgContent = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
     ${generateShape(userInput.shape, userInput.shapeColor)}
   </svg>`;
 
