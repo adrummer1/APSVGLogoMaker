@@ -15,6 +15,10 @@ AP SVGLogoMaker is a simple application written in NodeJS that users can utilize
 
 See video tutorial link below.
 
+## Notes
+* logo.svg file is added to the Examples directory.
+* Included are some tests in the shapes.test.js file.
+
 ## Screenshot of Sample Logo
 
 ![Screenshot](./examples/logo.svg)
