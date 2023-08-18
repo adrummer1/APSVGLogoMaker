@@ -23,9 +23,9 @@ See video tutorial link below.
 
 ![Screenshot](./examples/logo.svg)
 
-## Demo Video
+## Walkthrough Video
 
-(link to video)
+[Here is a link to a video tutorial!](https://drive.google.com/file/d/13RxGzBzX6cAvUCdwg-5KBBwboaVj80j9/view)
 
 
 
